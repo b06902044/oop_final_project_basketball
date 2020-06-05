@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EndGame">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/homescore"
+            android:textSize="24dp"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/score"
+            android:textSize="24dp"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:id="@+id/guestscore"
+            android:textSize="24dp"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:background="@drawable/shape_rectangel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Player"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="#ff0"
+                />
+
+            <ListView
+                android:background="@drawable/shape_rectangel"
+                android:id="@+id/players"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="8"/>
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/shape_rectangel"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="PTS"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="FGM"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="FGA"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="FG%"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="3PM"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="3PA"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="3P%"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="FTM"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="FTA"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="FT%"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="OFF"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="DEF"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="REB"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="AST"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="STL"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="BLK"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="TO"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="PF"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+
+
+                </LinearLayout>
+                <ListView
+                    android:id="@+id/stats"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+    </LinearLayout>
+
+</LinearLayout>
