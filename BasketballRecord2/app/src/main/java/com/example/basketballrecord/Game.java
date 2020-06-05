@@ -206,6 +206,7 @@ public class Game extends AppCompatActivity {
         intent.putExtra("guest", guest);
         intent.putExtra("type", type);
         intent.putExtra("date", date);
+        next();
         startActivity(intent);
     }
 
@@ -243,6 +244,10 @@ public class Game extends AppCompatActivity {
     }
 
     public void nextPeriod(View view) {
+        next();
+    }
+
+    public void next(){
         Log.v("john", "period = " + period);
         if(period == 1){
             hscore.add(points);

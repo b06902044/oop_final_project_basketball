@@ -44,6 +44,28 @@ public class EndGame extends AppCompatActivity {
         textViews[0].setText(home);
         textViews[1].setText("" + homeTotal + " : " + guestTotal);
         textViews[2].setText(guest);
+        TextView[] h = new TextView[7];
+        h[0] = findViewById(R.id.h);
+        h[1] = findViewById(R.id.h1);
+        h[2] = findViewById(R.id.h2);
+        h[3] = findViewById(R.id.h3);
+        h[4] = findViewById(R.id.h4);
+        h[5] = findViewById(R.id.hOT1);
+        h[6] = findViewById(R.id.hOT2);
+        TextView[] g = new TextView[7];
+        g[0] = findViewById(R.id.g);
+        g[1] = findViewById(R.id.g1);
+        g[2] = findViewById(R.id.g2);
+        g[3] = findViewById(R.id.g3);
+        g[4] = findViewById(R.id.g4);
+        g[5] = findViewById(R.id.gOT1);
+        g[6] = findViewById(R.id.gOT2);
+        h[0].setText(home);
+        g[0].setText(guest);
+        for(int i = 0; i < hscore.size(); i++){
+            h[i + 1].setText("" + hscore.get(i));
+            g[i + 1].setText("" + gscore.get(i));
+        }
     }
 
     private void init() {
