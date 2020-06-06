@@ -57,7 +57,7 @@ public class Game extends AppCompatActivity {
         date = intent.getStringExtra("date");
         points = intent.getIntExtra("points", 0);
         guest_points = intent.getIntExtra("guest_points", 0);
-        period = intent.getIntExtra("period", 0);
+        period = intent.getIntExtra("period", 1);
         hscore = intent.getIntegerArrayListExtra("hscore");
         gscore = intent.getIntegerArrayListExtra("gscore");
         Log.v("john", home + guest + type + date);
@@ -187,6 +187,8 @@ public class Game extends AppCompatActivity {
         intent.putExtra("points", points);
         intent.putExtra("guest_points", guest_points);
         intent.putExtra("period", period);
+        intent.putExtra("hscore", hscore);
+        intent.putExtra("gscore", gscore);
         setResult(300, intent);
         finish();
     }

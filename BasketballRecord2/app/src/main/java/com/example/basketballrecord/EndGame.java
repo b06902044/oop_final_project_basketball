@@ -18,7 +18,7 @@ public class EndGame extends AppCompatActivity {
     private GameStatsDB gameStatsDB;
 
     private String DB_NAME = "GAME.db";
-    private String TableName;
+    private String TableName = "temp";
     private int DB_VERSION = 1;
     private ListView stats, players;
     private int homeTotal, guestTotal;
@@ -29,7 +29,7 @@ public class EndGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
-        //gameStatsDB = new GameStatsDB(this, DB_NAME, null, DB_VERSION, TableName);
+        gameStatsDB = new GameStatsDB(this, DB_NAME, null, DB_VERSION, TableName);
         init();
         showScore();
         showPlayers();
