@@ -16,10 +16,11 @@ public class MySqlConnection {
             Connection con = DriverManager.getConnection(DBdata.url, DBdata.dbUser, DBdata.dbPwd);
             Statement st = con.createStatement();
             Log.v("DB", "yes");
-            String query = "SELECT username FROM login WHERE username = " + name;
+            String query = "SELECT * FROM login WHERE `username` = '" + name + "'";
             ResultSet rs = st.executeQuery(query);
             Log.v("DB", "well");
             if(rs.next() == false) {
+                Log.v("DB", "穩了");
                 String cmd = "INSERT INTO `login` VALUES ('" + name + "', '" + pwd + "')";
                 st = con.createStatement();
                 st.executeUpdate(cmd);
@@ -27,9 +28,31 @@ public class MySqlConnection {
                 Log.v("DB", "寫入資料完成：" + name + ", " + pwd);
                 return true;
             }
-            else return false;
+            else {
+                Log.v("DB", "重複");
+                return false;
+            }
         }
         catch(SQLException e){
+            e.printStackTrace();
+            Log.e("DB", "爆了");
+            Log.e("DB", e.toString());
+            return false;
+        }
+    }
+    public boolean checkRepeat(String name, String pwd){
+        try{
+            Log.v("DB", "yes?");
+            Connection con = DriverManager.getConnection(DBdata.url, DBdata.dbUser, DBdata.dbPwd);
+            Statement st = con.createStatement();
+            Log.v("DB", "yes");
+            String query = "SELECT * FROM login WHERE `username` = '" + name + "' AND `password` = '" + pwd + "'";
+            ResultSet rs = st.executeQuery(query);
+            Log.v("DB", "well");
+            if(rs.next()) return true;
+            return false;
+        }
+        catch (SQLException e){
             e.printStackTrace();
             Log.e("DB", "爆了");
             Log.e("DB", e.toString());

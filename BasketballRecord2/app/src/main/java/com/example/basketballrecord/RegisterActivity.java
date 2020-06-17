@@ -2,6 +2,8 @@ package com.example.basketballrecord;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -81,18 +83,29 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
-                new Thread(new Runnable() {
+                final boolean[] check = new boolean[1];
+                Thread T = new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        //boolean check = false;
                         MySqlConnection con = new MySqlConnection();
                         if(con.insertData(username, password)){
-                            Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(RegisterActivity.this, "使用者名稱重複", Toast.LENGTH_SHORT).show();
-                        }
+                            check[0] = true;
+                        }else check[0] = false;
                     }
-                }).start();
+                });
+                T.start();
+                try {
+                    T.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(check[0]){
+                    Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
+                    Intent back = new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivity(back);
+                }
+                else Toast.makeText(RegisterActivity.this, "使用者名稱重複", Toast.LENGTH_SHORT).show();
             }
         });
     }
