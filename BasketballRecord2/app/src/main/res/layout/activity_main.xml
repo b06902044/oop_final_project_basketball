@@ -4,35 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorOrange"
+    android:gravity="center"
     android:padding="15dp"
     >
-
 
     <Button
         android:id="@+id/register"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:text="註冊"
         android:textSize="24sp"
+        android:background="@drawable/bg_main_btn_4"
         />
 
     <Button
         android:id="@+id/login"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:text="登入"
         android:textSize="24sp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/bg_main_btn_4"
         />
 
-    <Button
-        android:id="@+id/new_Game"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="新增比賽"
-        android:textSize="24sp"
-        android:layout_marginTop="20dp"
-        />
 
 
 

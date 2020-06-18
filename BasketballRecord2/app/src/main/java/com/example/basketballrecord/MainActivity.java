@@ -9,20 +9,18 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button mBtnNewGame, mBtnRegister, mBtnLogin;
+    private Button mBtnRegister, mBtnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mBtnNewGame = (Button) findViewById(R.id.new_Game);
         mBtnRegister = (Button) findViewById(R.id.register);
         mBtnLogin = (Button) findViewById(R.id.login);
         setListener();
     }
     private void setListener(){
         OnClick onClick = new OnClick();
-        mBtnNewGame.setOnClickListener(onClick);
         mBtnRegister.setOnClickListener(onClick);
         mBtnLogin.setOnClickListener(onClick);
     }
@@ -33,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Intent intent = null;
             switch (v.getId()){
-                case R.id.new_Game:
-                    intent = new Intent(MainActivity.this, CreateGame.class);
-                    break;
                 case R.id.register:
                     intent = new Intent(MainActivity.this, RegisterActivity.class);
                     break;

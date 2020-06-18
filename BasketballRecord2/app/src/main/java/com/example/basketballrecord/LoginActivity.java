@@ -41,8 +41,9 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 if(check[0]){
-                    Intent back = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(back);
+                    UserInfo.userID = username;
+                    Intent goMain = new Intent(LoginActivity.this, MainViewActivity.class);
+                    startActivity(goMain);
                 }
                 else{
                     Toast.makeText(LoginActivity.this, "使用者或密碼錯誤", Toast.LENGTH_SHORT).show();

@@ -2,26 +2,15 @@ package com.example.basketballrecord;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText etUsername, etPassword;
@@ -84,28 +73,35 @@ public class RegisterActivity extends AppCompatActivity {
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
                 final boolean[] check = new boolean[1];
+                check[0] = false;
                 Thread T = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         //boolean check = false;
                         MySqlConnection con = new MySqlConnection();
-                        if(con.insertData(username, password)){
+                        if (con.insertRegisterData(username, password)) {
                             check[0] = true;
-                        }else check[0] = false;
+                        } else check[0] = false;
                     }
                 });
-                T.start();
-                try {
-                    T.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if (username.length() >= 4 && password.length() >= 8) {
+                    T.start();
+                    try {
+                        T.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(check[0]){
+                        UserInfo.userID = username;
+                        Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
+                        Intent goMain = new Intent(RegisterActivity.this, MainViewActivity.class);
+                        startActivity(goMain);
+                    }
+                    else Toast.makeText(RegisterActivity.this, "使用者名稱重複", Toast.LENGTH_SHORT).show();
                 }
-                if(check[0]){
-                    Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-                    Intent back = new Intent(RegisterActivity.this, MainActivity.class);
-                    startActivity(back);
+                else{
+                    Toast.makeText(RegisterActivity.this, "不符合長度限制", Toast.LENGTH_SHORT).show();
                 }
-                else Toast.makeText(RegisterActivity.this, "使用者名稱重複", Toast.LENGTH_SHORT).show();
             }
         });
     }
