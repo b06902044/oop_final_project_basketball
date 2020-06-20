@@ -209,6 +209,7 @@ public class Game extends AppCompatActivity {
         intent.putExtra("type", type);
         intent.putExtra("date", date);
         next();
+
         startActivity(intent);
     }
 

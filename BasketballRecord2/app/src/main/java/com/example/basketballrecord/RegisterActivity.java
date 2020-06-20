@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class RegisterActivity extends AppCompatActivity {
     EditText etUsername, etPassword;
     TextView tvWarning, tvWarning_pwd;
@@ -93,6 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     if(check[0]){
                         UserInfo.userID = username;
+                        UserInfo.compNames = new ArrayList<String>();
                         Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
                         Intent goMain = new Intent(RegisterActivity.this, MainViewActivity.class);
                         startActivity(goMain);

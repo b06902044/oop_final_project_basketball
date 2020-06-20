@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class MySqlConnection {
     public boolean insertRegisterData(String name, String pwd){
@@ -54,8 +55,17 @@ public class MySqlConnection {
                 String cmd = "INSERT INTO `competition` VALUES ('" + username + "', '" + compName + "', '" + year + "')";
                 st = con.createStatement();
                 st.executeUpdate(cmd);
-                st.close();
+                query = "SELECT * FROM competition WHERE `userid` = '" + username + "'";
+                st = con.createStatement();
+                rs = st.executeQuery(query);
+                UserInfo.compNames = new ArrayList<String>();
+                while(rs.next()){
+                    String n = rs.getString("name");
+                    String y = rs.getString("year");
+                    (UserInfo.compNames).add(n + " (" + y + ") ");
+                }
                 Log.v("DB", "寫入資料完成：" + username + ", " + compName + ", " + year);
+                st.close();
                 return true;
             }
             else {
@@ -79,7 +89,19 @@ public class MySqlConnection {
             String query = "SELECT * FROM login WHERE `username` = '" + name + "' AND `password` = '" + pwd + "'";
             ResultSet rs = st.executeQuery(query);
             Log.v("DB", "well");
-            if(rs.next()) return true;
+            if(rs.next()){
+                query = "SELECT * FROM competition WHERE `userid` = '" + name + "'";
+                st = con.createStatement();
+                rs = st.executeQuery(query);
+                UserInfo.compNames = new ArrayList<String>();
+                while(rs.next()){
+                    String n = rs.getString("name");
+                    String y = rs.getString("year");
+                    (UserInfo.compNames).add(n + " (" + y + ") ");
+                }
+
+                return true;
+            }
             return false;
         }
         catch (SQLException e){
