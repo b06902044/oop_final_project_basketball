@@ -59,11 +59,12 @@ public class HistoryActivity extends AppCompatActivity {
         int i = 0;
         for(AllStatistics s:allHistoryStats){
             if(compName.equals("ALL") || compName.equals(s.getType())) {
-                String[] k = new String[4];
+                String[] k = new String[5];
                 k[0] = s.getType();
                 k[1] = s.getDate();
                 k[2] = s.getHome() + " vs " + s.getGuest();
-                k[3] = String.valueOf(i);
+                k[3] = (s.getMyScore() > s.getGuestScore())? "勝" : "負";
+                k[4] = String.valueOf(i);
                 stringListView.add(k);
                 Log.v("History", k[0] + " " + k[1] + " " + k[2]);
             }
@@ -74,7 +75,7 @@ public class HistoryActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int p = Integer.parseInt(stringListView.get(position)[3]);
+                int p = Integer.parseInt(stringListView.get(position)[4]);
                 Intent intent = new Intent(HistoryActivity.this, EndGame.class);
                 intent.putExtra("player_list", allHistoryStats.get(p).getPlayers());
                 intent.putExtra("hscore", allHistoryStats.get(p).getMyScoreSec());

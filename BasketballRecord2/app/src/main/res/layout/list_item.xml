@@ -12,6 +12,7 @@
         android:gravity="center"
         android:textSize="10sp"
         android:background="@drawable/bg_lv"
+        android:text="盃賽名稱"
         />
 
     <TextView
@@ -21,7 +22,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textSize="10sp"
-        android:background="@drawable/bg_lv"/>
+        android:background="@drawable/bg_lv"
+        android:text="日期"/>
 
     <TextView
         android:id="@+id/tv3"
@@ -30,7 +32,19 @@
         android:layout_weight="1.5"
         android:gravity="center"
         android:textSize="10sp"
-        android:background="@drawable/bg_lv"/>
+        android:background="@drawable/bg_lv"
+        android:text="對戰組合"/>
+
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:textSize="10sp"
+        android:background="@drawable/bg_lv"
+        android:text="結果"
+        android:textColor="#FFFFFF"/>
 
 
 </LinearLayout>
