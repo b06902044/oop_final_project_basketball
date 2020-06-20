@@ -59,6 +59,7 @@
             android:layout_height="40dp"
             android:spinnerMode="dialog"
             android:prompt="@string/comp_name"
+
             />
 
         <TextView

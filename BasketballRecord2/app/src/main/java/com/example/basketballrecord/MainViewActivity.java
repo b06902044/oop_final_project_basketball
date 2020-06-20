@@ -45,6 +45,7 @@ public class MainViewActivity extends AppCompatActivity {
                     intent = new Intent(MainViewActivity.this, CreateGame.class);
                     break;
                 case R.id.game_search:
+                    intent = new Intent(MainViewActivity.this, HistoryActivity.class);
                     break;
                 case R.id.logout:
                     UserInfo.userID = null;

@@ -209,7 +209,20 @@ public class Game extends AppCompatActivity {
         intent.putExtra("type", type);
         intent.putExtra("date", date);
         next();
-
+        Thread T = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                MySqlConnection con = new MySqlConnection();
+                con.insertGameData(arrayList, hscore, gscore, points, guest_points, home, guest, type, date, UserInfo.userID);
+            }
+        });
+        try{
+            T.start();
+            T.join();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+            Toast.makeText(Game.this, "請稍等", Toast.LENGTH_SHORT).show();
+        }
         startActivity(intent);
     }
 

@@ -48,7 +48,7 @@ public class CreateGame extends AppCompatActivity {
     }
     private void setAdapter(){
 
-        Log.e("123", ""+UserInfo.compNames.size());
+        Log.v("comp size", ""+UserInfo.compNames.size());
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, UserInfo.compNames);
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);
         Spn.setAdapter(adapter);
