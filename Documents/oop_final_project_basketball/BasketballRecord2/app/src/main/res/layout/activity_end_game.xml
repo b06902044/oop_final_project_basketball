@@ -381,7 +381,23 @@
 
             </LinearLayout>
         </HorizontalScrollView>
+    </LinearLayout>
 
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.75">
+
+        <Button
+            android:layout_marginTop="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="回到主畫面"
+            android:textSize="24dp"
+            android:onClick="backToHomePage"/>
 
     </LinearLayout>
 

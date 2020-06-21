@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BasketballRecord</string>
+    <string name="comp_name">請選擇盃賽</string>
 </resources>

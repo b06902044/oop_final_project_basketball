@@ -6,64 +6,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="24dp"
-    android:layout_marginRight="24dp"
-    android:layout_marginTop="36dp"
-    tools:context=".CreateGame">
+    android:background="@color/colorOrange"
+    android:padding="30dp"
+    tools:context=".CreateGame"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        ></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_reg"
+        android:orientation="vertical"
+        android:padding="15dp"
+        >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="主隊"
-        android:textSize="24dp"
-        />
-    <EditText
-        android:id="@+id/Home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="台大資工"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="主隊"
+            android:textSize="24dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="客隊"
-        android:textSize="24dp"
-        />
-    <EditText
-        android:id="@+id/guest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="台大資工B"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="盃賽"
-        android:textSize="24dp"
-        />
-    <EditText
-        android:id="@+id/type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="台大盃"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="日期"
-        android:textSize="24dp"
-        />
-    <EditText
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="2020/5/20"/>
+        <EditText
+            android:id="@+id/Home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="台大資工" />
 
-    <Button
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="客隊"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/guest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="台大資工B" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="盃賽"
+            android:textSize="24dp" />
+
+        <Spinner
+            android:id="@+id/spinner_comp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:spinnerMode="dialog"
+            android:prompt="@string/comp_name"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="日期"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="2020/5/20" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="新增比賽"
-        android:layout_marginTop="100dp"
-        android:onClick="confirm"
-        />
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:text="新增比賽"
+                android:background="@drawable/bg_main_btn_4"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:onClick="confirm"
+                />
+    </LinearLayout>
 
 
 
