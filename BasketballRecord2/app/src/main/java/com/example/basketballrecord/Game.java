@@ -198,6 +198,7 @@ public class Game extends AppCompatActivity {
             Log.v("john", " i  = " + i);
             arrayList.get(i).finalCal();
         }
+        next();
         Intent intent = new Intent(this, EndGame.class);
         intent.putExtra("player_list", arrayList);
         intent.putExtra("hscore", hscore);
@@ -208,7 +209,6 @@ public class Game extends AppCompatActivity {
         intent.putExtra("guest", guest);
         intent.putExtra("type", type);
         intent.putExtra("date", date);
-        next();
         Thread T = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -265,13 +265,18 @@ public class Game extends AppCompatActivity {
 
     public void next(){
         Log.v("john", "period = " + period);
+        int hTmp = points, gTmp = guest_points;
         if(period == 1){
             hscore.add(points);
             gscore.add(guest_points);
         }
         else if(period > 1){
-            hscore.add(points - hscore.get(period - 2));
-            gscore.add(guest_points - gscore.get(period - 2));
+            for (int i = 0; i < period-1; i++) {
+                hTmp -= hscore.get(i);
+                gTmp -= gscore.get(i);
+            }
+            hscore.add(hTmp);
+            gscore.add(gTmp);
         }
         for(int i = 0; i < hscore.size(); i++){
             Log.v("john", "period = " + (period - 1) + hscore.get(i));
