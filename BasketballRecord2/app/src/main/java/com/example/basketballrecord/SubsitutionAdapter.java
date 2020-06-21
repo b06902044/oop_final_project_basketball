@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+//self define adapter that control the player list of the listview
+
 public class SubsitutionAdapter extends BaseAdapter implements View.OnClickListener {
 
     private Context context;

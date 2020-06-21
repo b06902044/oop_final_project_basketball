@@ -8,6 +8,8 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+//this activity is no use
+
 public class GameStatsDB extends SQLiteOpenHelper {
 
     private String TableName;

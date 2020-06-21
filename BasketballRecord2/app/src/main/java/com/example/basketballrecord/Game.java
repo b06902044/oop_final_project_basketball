@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+//this activity is to show the game is going on, how to add the stat of player
+
 public class Game extends AppCompatActivity {
 
     private ArrayList<Player> arrayList;
@@ -39,6 +41,7 @@ public class Game extends AppCompatActivity {
     }
 
     private void init_team() {
+        //init the activity
         homeScore = findViewById(R.id.homeScore);
         homeScore.setText("" + points);
         guestScore = findViewById(R.id.guest_points);
@@ -48,6 +51,7 @@ public class Game extends AppCompatActivity {
     }
 
     private void getData() {
+        //get the data
         homeTeam = findViewById(R.id.hometeam);
         guestTeam = findViewById(R.id.guestteam);
         Intent intent = getIntent();
@@ -66,6 +70,7 @@ public class Game extends AppCompatActivity {
     }
 
     private void init_player() {
+        //use a ArrayList to init the player information
         index = new int[5];
         textView[0] = (Button) findViewById(R.id.player1);
         textView[1] = (Button) findViewById(R.id.player2);
@@ -92,7 +97,7 @@ public class Game extends AppCompatActivity {
     }
 
 
-
+    //when a player is clicked, record the player id
     public void add_stat(View view) {
         switch (view.getId()){
             case R.id.player1:
@@ -117,8 +122,10 @@ public class Game extends AppCompatActivity {
         //Toast.makeText(this, "" + player + "make shot", Toast.LENGTH_SHORT).show();
     }
 
+    //when an action is clicked, add the stat of the player
     public void add_action(View view) {
         if(player == -1){
+            //if player id is -1, return immediately
             return;
         }
         int p = 0;
@@ -181,6 +188,7 @@ public class Game extends AppCompatActivity {
         action = "";
     }
 
+    //when the substitution button is clicked , put the information to intent, and back to the substitution activity
     public void substitution(View view) {
         Intent intent = new Intent();
         intent.putExtra("player_list", arrayList);
@@ -193,6 +201,7 @@ public class Game extends AppCompatActivity {
         finish();
     }
 
+    //when the endGame Button is clicked , put the information to intent, write data to database , and start the endGame activity
     public void endGame(View view) {
         for(int i = 0; i < arrayList.size(); i++){
             Log.v("john", " i  = " + i);
@@ -229,14 +238,17 @@ public class Game extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //add the point of home team
     public void add_home_point(View view) {
         add_points(0, 1);
     }
 
+    //add the point of guest team
     public void subtrac_home_point(View view) {
         add_points(0, -1);
     }
 
+    //add point function that the id is the team
     private void add_points(int id, int point) {
         if(id == 0){
             points += point;
@@ -262,10 +274,12 @@ public class Game extends AppCompatActivity {
         add_points(1, -1);
     }
 
+    //nextPeriod button is clicked
     public void nextPeriod(View view) {
         next();
     }
 
+    //calculate the point of the end section
     public void next(){
         Log.v("john", "period = " + period);
         int hTmp = points, gTmp = guest_points;

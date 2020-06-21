@@ -19,15 +19,10 @@ import android.widget.Toast;
 
 import java.util.List;
 
-/*
-    Home : 輸入主隊名
-    guest : 輸入客隊名
-
-*/
 public class CreateGame extends AppCompatActivity {
 
-    private EditText Home, guest, type, date;
-    private Spinner Spn;
+    private EditText Home, guest, type, date; //input data
+    private Spinner Spn; //cup of the game
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +33,7 @@ public class CreateGame extends AppCompatActivity {
 
     }
 
-    //確認資料，傳遞到下個activity
+    //確認資料，傳遞到下個Substitution activity
     public void confirm(View view) {
         Home = findViewById(R.id.Home);
         guest = findViewById(R.id.guest);
@@ -52,8 +47,9 @@ public class CreateGame extends AppCompatActivity {
         sub.putExtra("date", String.valueOf(date.getText()));
         startActivity(sub);
     }
-    private void setAdapter(){
 
+    private void setAdapter(){
+        //the adapter of spinner
         Log.v("comp size", ""+UserInfo.compNames.size());
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, UserInfo.compNames);
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_activated_1);

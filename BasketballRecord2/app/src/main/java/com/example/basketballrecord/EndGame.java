@@ -13,6 +13,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//this activity is to show the total stats of the whole game
+
 public class EndGame extends AppCompatActivity {
 
     private ArrayList<Player> arrayList;
@@ -38,6 +40,7 @@ public class EndGame extends AppCompatActivity {
     }
 
     private void showScore() {
+        //show the score of game
         TextView[] textViews = new TextView[3];
         textViews[0] = findViewById(R.id.homescore);
         textViews[1] = findViewById(R.id.score);
@@ -70,6 +73,7 @@ public class EndGame extends AppCompatActivity {
     }
 
     private void init() {
+        //init the activity
         Intent intent = getIntent();
         arrayList = (ArrayList<Player>)intent.getSerializableExtra("player_list");
         homeTotal = intent.getIntExtra("homeTotal", 0);
@@ -86,6 +90,7 @@ public class EndGame extends AppCompatActivity {
     }
 
     private void showPlayers() {
+        //use a simple adapter to show the player name and number
         ArrayList<HashMap<String , String>> data = new ArrayList<>();
         for(int i = 0; i < arrayList.size(); i++){
             HashMap<String, String> one = new HashMap<>();
@@ -99,6 +104,7 @@ public class EndGame extends AppCompatActivity {
     }
 
     private void showStats() {
+        //use a simple adapter to show the player's stats
         ArrayList<HashMap<String , String>> data = new ArrayList<>();
         String[] from = new String[]{"PTS", "FGM", "FGA", "FG%", "3PM", "3PA", "3P%", "FTM", "FTA",
                 "FT%", "OFF", "DEF", "REB", "AST", "STL", "BLK", "TO", "PF"};
@@ -133,6 +139,7 @@ public class EndGame extends AppCompatActivity {
     }
 
 
+    //Button click to back to the mainViewActivity
     public void backToHomePage(View view) {
         Intent intent = new Intent(this, MainViewActivity.class);
         startActivity(intent);
