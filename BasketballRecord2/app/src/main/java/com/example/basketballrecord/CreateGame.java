@@ -19,6 +19,11 @@ import android.widget.Toast;
 
 import java.util.List;
 
+/*
+    Home : 輸入主隊名
+    guest : 輸入客隊名
+
+*/
 public class CreateGame extends AppCompatActivity {
 
     private EditText Home, guest, type, date;
@@ -33,6 +38,7 @@ public class CreateGame extends AppCompatActivity {
 
     }
 
+    //確認資料，傳遞到下個activity
     public void confirm(View view) {
         Home = findViewById(R.id.Home);
         guest = findViewById(R.id.guest);

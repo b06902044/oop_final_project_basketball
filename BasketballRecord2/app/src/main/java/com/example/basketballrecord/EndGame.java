@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -132,4 +133,8 @@ public class EndGame extends AppCompatActivity {
     }
 
 
+    public void backToHomePage(View view) {
+        Intent intent = new Intent(this, MainViewActivity.class);
+        startActivity(intent);
+    }
 }
