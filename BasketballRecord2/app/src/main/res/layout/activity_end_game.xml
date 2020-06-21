@@ -387,17 +387,20 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.75">
+        android:layout_weight="1"
+        android:padding="10dp">
 
         <Button
-            android:layout_marginTop="7dp"
-            android:layout_width="wrap_content"
+
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="回到主畫面"
-            android:textSize="24dp"
-            android:onClick="backToHomePage"/>
+            android:textSize="20sp"
+            android:onClick="backToHomePage"
+            android:background="@drawable/bg_regbtn"
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 

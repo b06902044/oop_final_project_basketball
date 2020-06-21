@@ -37,7 +37,7 @@ public class Subsitution extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subsitution);
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //Toast.makeText(this, "oncreate", Toast.LENGTH_SHORT).show();
         getData();
         listView = findViewById(R.id.list_player);
