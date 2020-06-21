@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+/*
+    LoginActivity is a class that holds for the activity of the activity_login view
+ */
 public class LoginActivity extends AppCompatActivity {
     EditText etUsername, etPassword;
     Button btnLogin;
@@ -22,11 +25,17 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.login_password);
         btnLogin = (Button) findViewById(R.id.login_btn);
         btnLogin.setOnClickListener(new View.OnClickListener() {
+            /*
+                When trigger the button btnLogin
+             */
             @Override
             public void onClick(View v) {
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
                 final boolean[] check = new boolean[1];
+                /*
+                    Create a thread to run JDBC to check if the login data exists in database.
+                 */
                 Thread T = new Thread(new Runnable() {
                     @Override
                     public void run() {

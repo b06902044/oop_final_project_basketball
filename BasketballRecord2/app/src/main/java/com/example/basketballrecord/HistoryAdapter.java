@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/*
+    The adapter of the ListView lv in HistoryActivity
+ */
 public class HistoryAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater li;

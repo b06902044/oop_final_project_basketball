@@ -20,6 +20,10 @@ import android.widget.Toast;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/*
+    HistoryActivity is a class that holds for the activity in the activity history view
+    Mainly to show the history data of one's games
+ */
 public class HistoryActivity extends AppCompatActivity {
 
     private ListView lv;
@@ -37,7 +41,13 @@ public class HistoryActivity extends AppCompatActivity {
 
         snInitialize();
     }
+    /*
+        get the game data of one user's in the database
+     */
     void getData(){
+        /*
+            Create a thread to run JDBC to get one's game data
+         */
         Thread T = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -53,6 +63,10 @@ public class HistoryActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    /*
+        reset the ListView lv of the search result depend on the input cup name compName
+     */
     void lvInitialize(String compName){
         stringListView = new ArrayList<>();
         lv = (ListView) findViewById(R.id.lv_history);
@@ -91,7 +105,9 @@ public class HistoryActivity extends AppCompatActivity {
         });
     }
 
-
+    /*
+        To control the spinner sn that holds for cup name
+     */
     void snInitialize(){
         sn = (Spinner) findViewById(R.id.spinner_history);
         compNames.add("ALL");
@@ -104,6 +120,9 @@ public class HistoryActivity extends AppCompatActivity {
 
         sn.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
 
+            /*
+                This will trigger lnInitialize to reset its view based on the selected item.
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String str = parent.getSelectedItem().toString();

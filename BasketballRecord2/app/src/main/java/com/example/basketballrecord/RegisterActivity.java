@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/*
+    RegisterActivity hold for the view of activity_register.
+ */
 public class RegisterActivity extends AppCompatActivity {
     EditText etUsername, etPassword;
     TextView tvWarning, tvWarning_pwd;
@@ -28,6 +31,9 @@ public class RegisterActivity extends AppCompatActivity {
         tvWarning_pwd = (TextView)findViewById((R.id.tv_warning2));
 
         btnRegister = (Button)findViewById(R.id.reg_btn);
+        /*
+            This detect whether the input violate the restrictions of username.
+         */
         etUsername.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -48,6 +54,9 @@ public class RegisterActivity extends AppCompatActivity {
                 else tvWarning.setText("");
             }
         });
+        /*
+            This detect whether the input violate the restrictions of password.
+         */
         etPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -68,7 +77,9 @@ public class RegisterActivity extends AppCompatActivity {
                 else tvWarning_pwd.setText("");
             }
         });
-
+        /*
+            This holds for the action when triggering btnRegister.
+         */
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +87,9 @@ public class RegisterActivity extends AppCompatActivity {
                 final String password = etPassword.getText().toString();
                 final boolean[] check = new boolean[1];
                 check[0] = false;
+                /*
+                    Create a new thread to run JDBC connection to mySQL database.
+                 */
                 Thread T = new Thread(new Runnable() {
                     @Override
                     public void run() {

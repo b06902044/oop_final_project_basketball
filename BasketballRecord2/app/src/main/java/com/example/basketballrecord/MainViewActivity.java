@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/*
+    MainActivity hold for the main view after you login / register.
+ */
 public class MainViewActivity extends AppCompatActivity {
     private Button btnNewCompetition, btnNewGame, btnSearch, btnLogout;
     private TextView tvName;
@@ -25,6 +28,9 @@ public class MainViewActivity extends AppCompatActivity {
         }
         setListener();
     }
+    /*
+      Set the listener of each button
+    */
     private void setListener(){
         Onclick onclick = new Onclick();
         btnNewCompetition.setOnClickListener(onclick);
@@ -32,6 +38,9 @@ public class MainViewActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(onclick);
         btnLogout.setOnClickListener(onclick);
     }
+    /*
+        Trigger event and decide which activity to go when clicked
+     */
     private class Onclick implements View.OnClickListener{
 
         @Override

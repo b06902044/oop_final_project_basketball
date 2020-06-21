@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+/*
+    MainActivity hold for the main view you start the program.
+ */
 public class MainActivity extends AppCompatActivity {
     private Button mBtnRegister, mBtnLogin;
 
@@ -19,12 +22,18 @@ public class MainActivity extends AppCompatActivity {
         mBtnLogin = (Button) findViewById(R.id.login);
         setListener();
     }
+
+    /*
+        Set the listener of each button
+     */
     private void setListener(){
         OnClick onClick = new OnClick();
         mBtnRegister.setOnClickListener(onClick);
         mBtnLogin.setOnClickListener(onClick);
     }
-
+    /*
+        Trigger event and decide which activity to go when clicked
+     */
     private class OnClick implements View.OnClickListener{
 
         @Override

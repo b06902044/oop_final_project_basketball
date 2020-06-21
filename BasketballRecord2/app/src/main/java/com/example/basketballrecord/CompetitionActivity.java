@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/*
+    CompetitionActivity is a class that holds for the activity in the activity_competition view
+ */
 public class CompetitionActivity extends AppCompatActivity {
     EditText etName, etYear;
     Button btnBack, btnConfirm;
@@ -22,6 +25,9 @@ public class CompetitionActivity extends AppCompatActivity {
         btnConfirm = (Button) findViewById(R.id.comp_confirm);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
+            /*
+                When click this button, it will go back to main view.
+             */
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CompetitionActivity.this, MainViewActivity.class);
@@ -30,6 +36,10 @@ public class CompetitionActivity extends AppCompatActivity {
         });
 
         btnConfirm.setOnClickListener(new View.OnClickListener() {
+            /*
+                When click this button, it will create new data you insert (etName and etYear) to database.
+                And also go back to main view.
+             */
             @Override
             public void onClick(View view) {
                 String name;
@@ -46,6 +56,9 @@ public class CompetitionActivity extends AppCompatActivity {
                 catch (Exception e){
                     Toast.makeText(CompetitionActivity.this, "盃賽名稱不得為空", Toast.LENGTH_SHORT).show();
                 }
+                /*
+                    new thread to run JDBC connection (to insert cup data)
+                 */
                 Thread T = new Thread(new Runnable() {
                     @Override
                     public void run() {

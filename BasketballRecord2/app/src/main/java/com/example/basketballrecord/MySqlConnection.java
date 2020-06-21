@@ -12,7 +12,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/*
+     MySqlConnection is a public class which control any database connections and actions
+ */
 public class MySqlConnection {
+    /*
+        Get the data of games' statistics in database depend on the selected user in UserInfo
+     */
     public ArrayList<AllStatistics> getGameData(){
         ArrayList<AllStatistics> retStats = null;
         try{
@@ -60,6 +66,9 @@ public class MySqlConnection {
             return retStats;
         }
     }
+    /*
+        Insert the data of one game's statistics to database depend on the selected user in UserInfo
+     */
     public void insertGameData(ArrayList<Player> playerData, ArrayList<Integer> myScoreSection, ArrayList<Integer> guestScoreSection, int myScore, int guestScore
             , String home, String guest, String type, String date, String username){
         try {
@@ -110,6 +119,9 @@ public class MySqlConnection {
         }
     }
 
+    /*
+        Insert the register data to database base on the given username and pwd.
+     */
     public boolean insertRegisterData(String name, String pwd){
         try {
             Log.v("DB", "yes?");
@@ -140,6 +152,9 @@ public class MySqlConnection {
             return false;
         }
     }
+    /*
+        Insert the data of a cup to database based on the selected user in UserInfo, compName and year.
+     */
     public boolean insertCompetitionData(String username, String compName, int year){
         try {
             Log.v("DB", "yes?");
@@ -179,6 +194,9 @@ public class MySqlConnection {
             return false;
         }
     }
+    /*
+        To check if the login data match the data in the database.
+     */
     public boolean checkRepeat(String name, String pwd){
         try{
             Log.v("DB", "yes?");

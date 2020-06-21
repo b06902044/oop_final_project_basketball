@@ -1,5 +1,8 @@
 package com.example.basketballrecord;
 
+/*
+    store data of mySQL database
+ */
 public final class DBdata {
     private static final String mySqlIp = "db4free.net";
     private static final int port = 3306;

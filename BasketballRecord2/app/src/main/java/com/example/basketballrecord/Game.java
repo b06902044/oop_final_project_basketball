@@ -209,6 +209,9 @@ public class Game extends AppCompatActivity {
         intent.putExtra("guest", guest);
         intent.putExtra("type", type);
         intent.putExtra("date", date);
+        /*
+            Create new thread to insert whole game data to mySQL database
+         */
         Thread T = new Thread(new Runnable() {
             @Override
             public void run() {
