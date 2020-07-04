@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+//this activity is using Listview to show the operation of substitution
+
 public class Subsitution extends AppCompatActivity {
 
     private ListView listView;
@@ -37,7 +39,7 @@ public class Subsitution extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subsitution);
-        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //Toast.makeText(this, "oncreate", Toast.LENGTH_SHORT).show();
         getData();
         listView = findViewById(R.id.list_player);
@@ -69,6 +71,8 @@ public class Subsitution extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
+
+    //when the add player button is clicked , show a dialogue that can input number
     public void add_player_number(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("新增球員號碼");
@@ -92,6 +96,7 @@ public class Subsitution extends AppCompatActivity {
         builder.show();
     }
 
+    //show a dialogue that can input name
     private void add_player_name(final String number) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -125,7 +130,7 @@ public class Subsitution extends AppCompatActivity {
 
     }
 
-
+    //put the information to intent and start the Game activity
     public void confirmSub(View view){
         Intent intent = new Intent(this, Game.class);
         int i = 0;
@@ -142,6 +147,8 @@ public class Subsitution extends AppCompatActivity {
         startActivityForResult(intent, 100);
     }
 
+
+    //get the information back
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

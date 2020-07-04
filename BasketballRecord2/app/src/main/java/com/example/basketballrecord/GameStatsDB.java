@@ -4,8 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+//this activity is no use
 
 public class GameStatsDB extends SQLiteOpenHelper {
 
@@ -14,6 +17,7 @@ public class GameStatsDB extends SQLiteOpenHelper {
     public GameStatsDB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version, String TableName) {
         super(context, name, factory, version);
         this.TableName = TableName;
+        Log.v("john", "createDataBase");
     }
 
     @Override

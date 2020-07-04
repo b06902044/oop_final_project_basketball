@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -12,13 +13,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//this activity is to show the total stats of the whole game
+
 public class EndGame extends AppCompatActivity {
 
     private ArrayList<Player> arrayList;
     private GameStatsDB gameStatsDB;
 
     private String DB_NAME = "GAME.db";
-    private String TableName;
+    private String TableName = "temp";
     private int DB_VERSION = 1;
     private ListView stats, players;
     private int homeTotal, guestTotal;
@@ -29,7 +32,7 @@ public class EndGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
-        //gameStatsDB = new GameStatsDB(this, DB_NAME, null, DB_VERSION, TableName);
+        gameStatsDB = new GameStatsDB(this, DB_NAME, null, DB_VERSION, TableName);
         init();
         showScore();
         showPlayers();
@@ -37,6 +40,7 @@ public class EndGame extends AppCompatActivity {
     }
 
     private void showScore() {
+        //show the score of game
         TextView[] textViews = new TextView[3];
         textViews[0] = findViewById(R.id.homescore);
         textViews[1] = findViewById(R.id.score);
@@ -44,9 +48,32 @@ public class EndGame extends AppCompatActivity {
         textViews[0].setText(home);
         textViews[1].setText("" + homeTotal + " : " + guestTotal);
         textViews[2].setText(guest);
+        TextView[] h = new TextView[7];
+        h[0] = findViewById(R.id.h);
+        h[1] = findViewById(R.id.h1);
+        h[2] = findViewById(R.id.h2);
+        h[3] = findViewById(R.id.h3);
+        h[4] = findViewById(R.id.h4);
+        h[5] = findViewById(R.id.hOT1);
+        h[6] = findViewById(R.id.hOT2);
+        TextView[] g = new TextView[7];
+        g[0] = findViewById(R.id.g);
+        g[1] = findViewById(R.id.g1);
+        g[2] = findViewById(R.id.g2);
+        g[3] = findViewById(R.id.g3);
+        g[4] = findViewById(R.id.g4);
+        g[5] = findViewById(R.id.gOT1);
+        g[6] = findViewById(R.id.gOT2);
+        h[0].setText(home);
+        g[0].setText(guest);
+        for(int i = 0; i < hscore.size(); i++){
+            h[i + 1].setText("" + hscore.get(i));
+            g[i + 1].setText("" + gscore.get(i));
+        }
     }
 
     private void init() {
+        //init the activity
         Intent intent = getIntent();
         arrayList = (ArrayList<Player>)intent.getSerializableExtra("player_list");
         homeTotal = intent.getIntExtra("homeTotal", 0);
@@ -63,6 +90,7 @@ public class EndGame extends AppCompatActivity {
     }
 
     private void showPlayers() {
+        //use a simple adapter to show the player name and number
         ArrayList<HashMap<String , String>> data = new ArrayList<>();
         for(int i = 0; i < arrayList.size(); i++){
             HashMap<String, String> one = new HashMap<>();
@@ -76,6 +104,7 @@ public class EndGame extends AppCompatActivity {
     }
 
     private void showStats() {
+        //use a simple adapter to show the player's stats
         ArrayList<HashMap<String , String>> data = new ArrayList<>();
         String[] from = new String[]{"PTS", "FGM", "FGA", "FG%", "3PM", "3PA", "3P%", "FTM", "FTA",
                 "FT%", "OFF", "DEF", "REB", "AST", "STL", "BLK", "TO", "PF"};
@@ -110,4 +139,9 @@ public class EndGame extends AppCompatActivity {
     }
 
 
+    //Button click to back to the mainViewActivity
+    public void backToHomePage(View view) {
+        Intent intent = new Intent(this, MainViewActivity.class);
+        startActivity(intent);
+    }
 }

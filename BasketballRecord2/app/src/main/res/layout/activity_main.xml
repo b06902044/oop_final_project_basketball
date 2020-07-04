@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="@color/colorOrange"
+    android:gravity="center"
+    android:padding="15dp"
+    >
 
     <Button
+        android:id="@+id/register"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="新增比賽"
-        android:textSize="24dp"
-        android:gravity="center_horizontal"
-        android:onClick="newGame"
-        android:id="@+id/newGame"
+        android:layout_height="80dp"
+        android:text="註冊"
+        android:textSize="24sp"
+        android:background="@drawable/bg_main_btn_4"
         />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="登入"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_main_btn_4"
+        />
+
 
 
 

@@ -5,6 +5,8 @@ import android.util.Log;
 import java.io.Serializable;
 import java.util.HashMap;
 
+//this class have the information of a single player
+
 public class Player implements Serializable {
 
     private String number;
